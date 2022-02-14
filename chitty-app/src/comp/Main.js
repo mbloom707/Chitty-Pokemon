@@ -46,9 +46,9 @@ function MainContent() {
   return (
     <main className={classes.fullWidth}>
       <div className={classes.toolbar} />
-      <div className={classes.title}>
+
         <Typography variant='h6'>WELCOME TO THE POKEDEX</Typography>
-      </div>
+
       <div className={classes.content}>
         <Typography header>
           PLEASE SEARCH A POKEMON TO LEARN MORE ABOUT IT

@@ -11,43 +11,52 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Avatar from '@mui/material/Avatar';
 import Logo from '../img/pocketMonsters.png';
-// import SearchBar from "./SearchBar"
+import SearchBar from './SearchBar';
 
-// class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     searchTerm: ``,
-  //   };
 
-  //   this.handleSearchChange = this.handleSearchChange.bind(this);
-  //   this.handleSearchClick = this.handleSearchClick.bind(this);
-  // }
+// class SearchApp extends Component {
+//   constructor() {
+//       super();
+//       this.state = {
+//       searchTerm: ``,
+//       };
 
-  // handleSearchClick(e) {
-  //   //actually search for pokemon here
-  //   console.log("handle Search click");
-  //   let searchBar = document.querySelector('Search');
-  //   console.log('You Searched', this.state.searchTerm);
+//       this.handleSearchChange = this.handleSearchChange.bind(this);
+//       this.handleSearchClick = this.handleSearchClick.bind(this);
+//       this.getPokeData = this.getPokeData.bind(this)
+//   }
+//       getPokeData(searchTerm) {
+//           console.log(searchTerm, "getPokeData")
+//           const url = `https://pokeapi.co/api/v2/pokemon/${searchTerm}`
+//           fetch(url).then(res => res.json()).then(data => { console.log(data) })
+//       }
 
-  //   searchBar.value = '';
-  //   e.preventDefault();
-  // }
+//   handleSearchClick(e) {
+//       //actually search for pokemon here
+//       console.log("handle Search click");
+//       let searchBar = document.querySelector('Search');
+//       console.log('You Searched', this.state.searchTerm);
 
-  // handleSearchChange(e) {
-  //   console.log(e.target.value);
-  //   this.setState({ searchTerm: e.target.value });
-  // }
+//       searchBar.value = '';
+//       e.preventDefault();
+//   }
+
+//   handleSearchChange(e) {
+//       console.log(e.target.value);
+//       this.setState({ searchTerm: e.target.value });
+//   }
 // }
-// const Title = styled('div')(({ theme }) => ({
-//     padding: theme.spacing(0, 0),
-//     height: '100%',
-//     position: 'absolute',
-//     pointerEvents: 'none',
-//     display: 'flex',
-//     alignItems: 'left',
-//     justifyContent: 'center',
-// }));
+
+
+const Title = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 0),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'left',
+    justifyContent: 'center',
+}));
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -105,7 +114,7 @@ export default function TopMenu() {
             sx={{ mr: 2 }}
           >
 
-          <img alt="The Thicc One" src={Logo}></img>
+          <img alt="The Thicc One" src={Logo.toString()}></img>
           </IconButton>
 
 
@@ -115,7 +124,7 @@ export default function TopMenu() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <Search>
+            {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -123,7 +132,8 @@ export default function TopMenu() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
+          <SearchBar />
 
           </Typography>
 

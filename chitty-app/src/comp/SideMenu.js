@@ -42,9 +42,9 @@ function SideMenu() {
         paper: classes.drawerPaper,
       }}
     >
-      <Grid container justify='center' alignItems='center'>
+      <Grid container justifyContent='center' alignItems='center'>
         <Avatar
-          img src={heThicc}
+          img src={heThicc.toString()}
           className={classes.bigAvatar}
         />
       </Grid>

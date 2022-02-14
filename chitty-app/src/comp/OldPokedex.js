@@ -16,6 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 //import { toFirstCharUppercase } from "./constants";
 //import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
+import SearchBar from './SearchBar';
 
 const styleModal = {
     position: 'absolute',
@@ -51,7 +52,7 @@ const OldPokedex = (props) => {
     const classes = useStyles();
     const { history } = props;
     const [pokemonData, setPokemonData] = useState({});
-    const [filter, setFilter] = useState("");
+    const [filter, setFilter, searchTerm] = useState("");
 
 
 
@@ -80,21 +81,24 @@ const OldPokedex = (props) => {
             });
     }, []);
 
-    const handleSearchChange = (e) => {
-        setFilter(e.target.value);
-    };
+    // const handleSearchChange = (e) => {
+    //     setFilter(e.target.value);
+    // };
 
     const toFirstCharUppercase = name =>
         name.charAt(0).toUpperCase() + name.slice(1);
 
-    const getPokemonCard = (pokemonId) => {
+    const getPokemonCard = ({pokemonId, searchTerm}) => {
         const { id, name, sprite } = pokemonData[pokemonId];
+
         return (
+
+
             <Grid item xs={4} key={pokemonId}>
                 <Card onClick={() => history.push(`/${id}`)}>
                     <CardMedia
                         className={classes.cardMedia}
-                        image={sprite}
+                        image={sprite.toString()}
                         style={{ width: "130px", height: "130px" }}
                     />
                     <CardContent className={classes.cardContent}>
@@ -104,6 +108,7 @@ const OldPokedex = (props) => {
             </Grid>
         );
     };
+
     return (
         <>
             {pokemonData ? (
@@ -111,6 +116,7 @@ const OldPokedex = (props) => {
 
                   {Object.keys(pokemonData).map(
                     (pokemonId) =>
+                    console.log("from pokedex: " + searchTerm) &&
                       pokemonData[pokemonId].name.includes(filter) &&
                       getPokemonCard(pokemonId)
                   )}
